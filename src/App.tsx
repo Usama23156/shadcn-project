@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function App() {
   const [clickCount, setClickCount] = useState(0);
@@ -16,7 +27,7 @@ export default function App() {
 
   const toggleCheck = (id: string) =>
     setChecked((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id],
     );
 
   return (
@@ -48,15 +59,30 @@ export default function App() {
       <Card>
         <CardHeader>
           <CardTitle>Button — click counter</CardTitle>
-          <CardDescription>Displays updated count on every click</CardDescription>
+          <CardDescription>
+            Displays updated count on every click
+          </CardDescription>
         </CardHeader>
         <CardContent className="flex gap-3 cursor-pointer">
-          <Button className="cursor-pointer bg-red-600" onClick={() => setClickCount((c) => c + 1)}>
+          <Button
+            className="cursor-pointer bg-red-600"
+            onClick={() => setClickCount((c) => c + 1)}
+          >
             Click me — {clickCount} clicks
           </Button>
-          <Button variant="outline" className="backdrop-brightness-95" onClick={() => setClickCount(0)}>
+          <Button
+            variant="outline"
+            className="backdrop-brightness-95"
+            onClick={() => setClickCount(0)}
+          >
             Reset
           </Button>
+          <Input
+            type="number"
+            placeholder="number"
+            className="w-32"
+            onChange={(e) => setClickCount(Number(e.target.value))}
+          />
         </CardContent>
       </Card>
     </main>
